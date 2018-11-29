@@ -22,6 +22,8 @@ Route::delete('comment/{comment}', 'CommentController@destroy');
 
 // Admin Routes
 Route::get('admin', 'AdminController@index');
+Route::get('admin/profile', 'AdminController@show');
+Route::patch('admin/profile', 'AdminController@update');
 Route::get('logout', 'AdminController@destroy');
 Route::post('admin', 'AdminController@store');
 

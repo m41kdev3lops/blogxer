@@ -33,7 +33,7 @@
         @if ( ! loggedIn() )
             <a href="{{ url('admin') }}" class="nav-link">Admin Login</a>
         @else
-            Hello {{ admin()->name }} ( <a href="{{ url('logout') }}" class="nav-link">Logout</a> )
+            <a href="{{ url('admin/profile') }}">Hello {{ admin()->name }}</a> &nbsp; ( <a href="{{ url('logout') }}" class="nav-link">Logout</a> )
         @endif
         
         {{-- search Form --}}
