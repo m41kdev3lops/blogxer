@@ -1,7 +1,7 @@
 # aqar-blog
 This is the aqar blog task.
 
-# How to setup
+# How to setup ( After cloning the project on your local machine. )
 
 1. edit the .env file to add your database credentials.
 2. create a new database ( the name I used was aqar_blog )
