@@ -17,6 +17,7 @@ That's it. Enjoy.
 When you run the db seeds, you'll get an admin account with the following credentials
 
 email: admin@aqarblog.com
+
 password: password
 
 use those creds to login as an admin account.
