@@ -45,6 +45,15 @@
         </div>
     </form>
 
+    @if ( loggedIn() )
+        <form action="{{ $post->getLink() }}" method="post" class="text-center">
+            {{ csrf_field() }}
+            {{ method_field('delete') }}
+
+            <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Are you sure?');">Delete Post</button>
+        </form>
+    @endif
+
     <br><hr>
 
     <p class="text-center">

@@ -58,6 +58,6 @@ class PostController extends Controller
 
         swal("Post Deleted!");
 
-        return redirect()->back();
+        return redirect('/');
     }
 }
