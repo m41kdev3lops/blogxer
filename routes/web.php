@@ -1,0 +1,27 @@
+<?php
+
+// Home Route
+Route::get('/', 'HomeController@index');
+
+// Post Routes
+Route::get('post/create', 'PostController@create');
+Route::get('post/{post}', 'PostController@show');
+Route::post('post', 'PostController@store');
+Route::delete('post/{post}', 'PostController@destroy');
+
+// Category Routes
+Route::get('category/create', 'CategoryController@create');
+Route::get('category/{category}', 'CategoryController@show');
+Route::post('category', 'CategoryController@store');
+
+// Comment Routes
+Route::post('post/{post}/comment', 'CommentController@store');
+Route::delete('comment/{comment}', 'CommentController@destroy');
+
+// -=-=-=-=-=-=-=-=-=
+
+// Admin Routes
+Route::get('admin', 'AdminController@index');
+Route::get('logout', 'AdminController@destroy');
+Route::post('admin', 'AdminController@store');
+
