@@ -1,6 +1,10 @@
 @extends('layouts.base')
 
 @section('content')
+    
+    <h1>Update info</h1>
+
+    <hr>
 
     <form action="{{ url('admin/profile') }}" method="post">
         {{ csrf_field() }}
