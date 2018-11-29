@@ -25,7 +25,7 @@ class AdminController extends Controller
     }
 
 
-    public function update( Request $request )
+    public function update(Request $request)
     {
         $admin = admin();
 
