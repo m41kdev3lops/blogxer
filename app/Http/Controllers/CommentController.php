@@ -15,7 +15,7 @@ class CommentController extends Controller
     public function __construct( CommentService $commentService )
     {
         $this->middleware('isAdmin')->only([
-            'destory'
+            'destroy'
         ]);
 
         $this->commentService = $commentService;
@@ -32,9 +32,9 @@ class CommentController extends Controller
     }
 
 
-    public function destroy(Comment $comment)
+    public function destroy($id)
     {
-        $comment->delete();
+        $this->commentService->destroy($id);
 
         swal("Comment deleted");
 

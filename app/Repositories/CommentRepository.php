@@ -22,4 +22,10 @@ class CommentRepository
             'body'              => $request['body']
         ]);
     }
+
+
+    public function delete( int $id )
+    {
+        return $this->comment->find($id)->delete();
+    }
 }

@@ -20,4 +20,10 @@ class CommentService
 
         return $this->commentRepo->create( $id, $request );
     }
+
+
+    public function destroy(int $id)
+    {
+        return $this->commentRepo->delete($id);
+    }
 }
