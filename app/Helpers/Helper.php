@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+
 /**
  * Flashes a message to the session to be displayed by sweetalert
  * 
@@ -30,7 +32,7 @@ function swal( $message, $class = null, $title = null )
  */
 function loggedIn()
 {
-    return session()->has('loggedInAdmin');
+    return Auth::check();
 }
 
 
@@ -43,23 +45,5 @@ function loggedIn()
  */
 function admin()
 {
-    return session()->get('loggedInAdmin');
-}
-
-
-/**
- * Check if the user credentials are valid
- * 
- * @param string $email
- * @param string $password
- * 
- * @return boolean
- */
-function authCheck(string $email, string $password)
-{
-    $admin = \App\Admin::where('email', $email)->first();
-
-    if ( ! $admin || ! password_verify($password, $admin->password) ) return FALSE;
-
-    return $admin;
+    return Auth::user();
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -52,21 +54,19 @@ class AdminController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(LoginRequest $request)
     {
-        $this->validate($request, [
-            'email'     => 'required',
-            'password'  => 'required'
-        ]);
+        $attempt = Auth::attempt(
+            $request->only('email', 'password'), true
+        );
 
-        $admin = authCheck($request->email, $request->password);
-
-        if ( ! $admin ) {
+        if ( ! $attempt ) {
             swal("Wrong Credentials", 'error', 'Error');
+            
             return redirect()->back()->withInput();
         }
 
-        session()->put('loggedInAdmin', $admin);
+        $admin = Auth::user();
         
         swal("Welcome back, {$admin->name}");
 
@@ -76,7 +76,7 @@ class AdminController extends Controller
 
     public function destroy()
     {
-        session()->forget('loggedInAdmin');
+        Auth::logout();
 
         swal("You are logged out!");
 
