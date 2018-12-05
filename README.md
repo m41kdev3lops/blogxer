@@ -1,5 +1,5 @@
-# aqar-blog
-This is the aqar blog task.
+# BloXer
+An awesome blog built from scratch using Laravel.
 
 # How to setup ( After cloning the project on your local machine. )
 
