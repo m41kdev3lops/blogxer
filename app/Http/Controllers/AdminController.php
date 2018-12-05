@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\AdminService;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\UpdateAdminRequest;
 
 class AdminController extends Controller
 {
@@ -32,26 +33,9 @@ class AdminController extends Controller
     }
 
 
-    public function update(Request $request)
+    public function update(UpdateAdminRequest $request)
     {
-        $admin = admin();
-
-        $admin->name = $request->name;
-        $admin->email = $request->email;
-
-        if ( $request->new_password ) {
-            $this->validate($request, [
-                'new_password'              => 'required|confirmed',
-                'new_password_confirmation' => 'required'
-            ]);
-            
-            $admin->password = bcrypt($request->new_password);
-        }
-
-        $admin->save();
-
-        session()->forget('loggedInAdmin');
-        session()->put('loggedInAdmin', $admin);
+        $this->adminService->update($request);
 
         swal("Profile Updated successfully");
 

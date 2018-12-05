@@ -34,4 +34,21 @@ class AdminService
 
         return redirect('/');
     }
+
+
+    public function update($request)
+    {
+        $admin = admin();
+
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        
+        if ( $request->new_password ) $admin->password = bcrypt($request->new_password);
+
+        $admin->save();
+
+        Auth::logout();
+
+        Auth::login($admin, true);
+    }
 }
