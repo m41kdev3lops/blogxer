@@ -22,9 +22,9 @@ class Post extends Model
 
     // General/Helper methods
 
-    public static function getPublished()
+    public function getPublished()
     {
-        return self::where('is_published', 1)->orderBy('created_at', 'desc')->get();
+        return $this->where('is_published', 1)->orderBy('created_at', 'desc')->get();
     }
 
 

@@ -59,7 +59,7 @@ function authCheck(string $email, string $password)
 {
     $admin = \App\Admin::where('email', $email)->first();
 
-    if ( ! password_verify($password, $admin->password) ) return FALSE;
+    if ( ! $admin || ! password_verify($password, $admin->password) ) return FALSE;
 
     return $admin;
 }
