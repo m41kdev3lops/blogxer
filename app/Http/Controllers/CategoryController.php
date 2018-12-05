@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Category;
+use Illuminate\Http\Request;
+use App\Services\CategoryService;
+use App\Http\Requests\CategoryCreateRequest;
 
 class CategoryController extends Controller
 {
-    public function __construct()
+    protected $categoryService;
+
+    public function __construct(CategoryService $categoryService)
     {
         $this->middleware('isAdmin')->only([
             'store', 'create'
         ]);
+
+        $this->categoryService = $categoryService;
     }
 
 
@@ -29,16 +35,9 @@ class CategoryController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(CategoryCreateRequest $request)
     {
-        $this->validate($request, [
-            'name'  => 'required|unique:categories'
-        ]);
-
-        $category = new Category;
-        $category->name = $request->name;
-
-        $category->save();
+        $this->categoryService->add( $request->all() );
 
         swal("Category added");
 
