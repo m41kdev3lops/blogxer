@@ -7,6 +7,9 @@ use App\Comment;
 
 class Post extends Model
 {
+    protected $fillable = [
+        'category_id', 'title', 'short_description', 'body'
+    ];
     // Relationships
     
     public function category()

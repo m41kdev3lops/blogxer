@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PostCreateRequest;
 use App\Services\PostService;
 use Illuminate\Http\Request;
 use App\Post;
@@ -35,23 +36,9 @@ class PostController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(PostCreateRequest $request)
     {
-        $this->validate($request, [
-            'category_id'           => 'required',
-            'title'                 => 'required|unique:posts',
-            'short_description'     => 'required',
-            'body'                  => 'required',
-        ]);
-
-        $post = new Post;
-
-        $post->category_id = $request->category_id;
-        $post->title = $request->title;
-        $post->short_description = $request->short_description;
-        $post->body = $request->body;
-
-        $post->save();
+        $post = $this->postService->store( $request->all() );
 
         swal("Post added");
 
