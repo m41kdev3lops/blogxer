@@ -2,34 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentCreateRequest;
+use App\Services\CommentService;
 use Illuminate\Http\Request;
 use App\Comment;
 use App\Post;
 
 class CommentController extends Controller
 {
-    public function __construct()
+    protected $commentService;
+
+    public function __construct( CommentService $commentService )
     {
         $this->middleware('isAdmin')->only([
             'destory'
         ]);
+
+        $this->commentService = $commentService;
     }
 
 
-    public function store(Post $post)
+    public function store(CommentCreateRequest $request, $id)
     {
-        $this->validate(request(), [
-            'body'  => 'required'
-        ]);
-
-        if ( ! loggedIn() ) {
-            $this->validate(request(), ['name' => 'required']);
-            $name = request('name');
-        } else {
-            $name = admin()->name;
-        }
-
-        $post->addComment($name, request('body'));
+        $comment = $this->commentService->add($id, $request->all());
 
         swal('Comment Added, Yay!');
 

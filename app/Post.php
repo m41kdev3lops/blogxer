@@ -41,18 +41,4 @@ class Post extends Model
     {
         return url("post/{$this->id}");
     }
-
-
-    public function addComment( string $user, string $body )
-    {
-        $comment = new Comment;
-        
-        $comment->post_id = $this->id;
-        $comment->user = $user;
-        $comment->body = $body;
-
-        $comment->save();
-
-        return $comment;
-    }
 }
