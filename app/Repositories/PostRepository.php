@@ -32,14 +32,8 @@ class PostRepository
     }
 
 
-    public function deleteWithId( int $id )
+    public function delete( int $id )
     {
         return $this->find($id)->delete();
-    }
-
-
-    public function delete()
-    {
-        return $this->post->delete();
     }
 }

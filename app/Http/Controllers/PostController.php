@@ -52,10 +52,9 @@ class PostController extends Controller
     }
 
 
-    public function destroy(Post $post)
+    public function destroy($id)
     {
-        $post->comments()->delete();
-        $post->delete();
+        $this->postService->destroy($id);
 
         swal("Post Deleted!");
 
