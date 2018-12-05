@@ -28,7 +28,7 @@ class UpdateAdminRequest extends FormRequest
 
         if ( $this->new_password ) {
             $rules = [
-                'new_password'              => 'required|confirmed',
+                'new_password' => 'required|confirmed',
             ];
         }
 

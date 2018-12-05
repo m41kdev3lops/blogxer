@@ -50,5 +50,9 @@ class AdminService
         Auth::logout();
 
         Auth::login($admin, true);
+
+        swal("Profile Updated successfully");
+
+        return redirect()->back();
     }
 }

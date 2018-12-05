@@ -35,11 +35,7 @@ class AdminController extends Controller
 
     public function update(UpdateAdminRequest $request)
     {
-        $this->adminService->update($request);
-
-        swal("Profile Updated successfully");
-
-        return redirect()->back();
+        return $this->adminService->update($request);
     }
 
 
