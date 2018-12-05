@@ -1,7 +1,7 @@
 <?php
 
 // Home Route
-Route::get('/', 'HomeController@index');
+Route::get('/', 'PostController@index');
 
 // Post Routes
 Route::get('post/create', 'PostController@create');
