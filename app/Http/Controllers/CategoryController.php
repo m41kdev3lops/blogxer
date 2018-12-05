@@ -43,4 +43,10 @@ class CategoryController extends Controller
 
         return redirect('/');
     }
+
+
+    public function destroy( $id )
+    {
+        return $this->categoryService->delete($id);
+    }
 }

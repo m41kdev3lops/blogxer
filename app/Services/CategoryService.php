@@ -18,4 +18,17 @@ class CategoryService
     {
         return $this->categoryRepo->create($data);
     }
+
+
+    public function delete( int $id )
+    {
+        $cat = $this->categoryRepo->find($id);
+        
+        $cat->posts()->delete();
+        $cat->delete();
+
+        swal("Category And Posts deleted successfully!");
+
+        return redirect('/');
+    }
 }

@@ -17,6 +17,7 @@ Route::delete('post/{post}', 'PostController@destroy');
 Route::get('category/create', 'CategoryController@create');
 Route::get('category/{category}', 'CategoryController@show');
 Route::post('category', 'CategoryController@store');
+Route::delete('category/{category}', 'CategoryController@destroy');
 
 // -=-=-=-=-=-=-=-=-=
 

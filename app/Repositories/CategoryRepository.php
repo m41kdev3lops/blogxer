@@ -20,4 +20,10 @@ class CategoryRepository
             'name'  => $data['name']
         ]);
     }
+
+
+    public function find( int $id )
+    {
+        return $this->category->find($id);
+    }
 }

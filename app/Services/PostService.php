@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Category;
 use App\Repositories\PostRepository;
 
 class PostService
@@ -11,6 +12,18 @@ class PostService
     public function __construct( PostRepository $postRepo )
     {
         $this->postRepo = $postRepo;
+    }
+
+    
+    public function showCreateForm()
+    {
+        if ( ! Category::first() ) {
+            swal("Please add a category first", 'error', 'error');
+            
+            return redirect('category/create');
+        }
+
+        return view('posts.create');
     }
 
 

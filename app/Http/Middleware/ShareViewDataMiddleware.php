@@ -20,7 +20,7 @@ class ShareViewDataMiddleware
         try{
             $categories = Category::all();
         } catch(\Illuminate\Database\QueryException $e) {
-            dd("Please run `php artisan migrate --seed` to insert necessary data into the db.");
+            $categories = [];
         }
 
         View::share('categories', $categories);

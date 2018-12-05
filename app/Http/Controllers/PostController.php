@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostCreateRequest;
-use App\Services\PostService;
-use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Http\Request;
+use App\Services\PostService;
+use App\Http\Requests\PostCreateRequest;
 
 class PostController extends Controller
 {
@@ -32,7 +32,7 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        return $this->postService->showCreateForm();
     }
 
 

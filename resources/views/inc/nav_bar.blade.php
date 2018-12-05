@@ -13,9 +13,13 @@
                 Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @foreach( $categories as $category )
-                        <a class="dropdown-item" href="{{ $category->getLink() }}">{{ $category->name }}</a>
-                    @endforeach
+                    @if ( $categories && count($categories) )
+                        @foreach( $categories as $category )
+                            <a class="dropdown-item" href="{{ $category->getLink() }}">{{ $category->name }}</a>
+                        @endforeach
+                    @else
+                        <a class="dropdown-item" href="javascript::void(0)">No Categories</a>
+                    @endif
                 </div>
             </li>
 
