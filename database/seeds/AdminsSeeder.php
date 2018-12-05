@@ -12,7 +12,7 @@ class AdminsSeeder extends Seeder
     public function run()
     {
         factory(App\Admin::class)->create([
-            'email' => 'admin@aqarblog.com',
+            'email' => 'admin@blogxer.com',
             'name'  => 'Admin1'
         ]);
     }
