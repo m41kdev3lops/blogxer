@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="text-center">Welcome to Aqar Blog <i class="fa fa-hand-peace-o"></i></h1>
+    <h1 class="text-center">Welcome to BlogXer <i class="fa fa-hand-peace-o"></i></h1>
 
     <hr>
 
