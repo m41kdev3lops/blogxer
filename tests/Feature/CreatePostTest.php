@@ -16,10 +16,8 @@ class CreatePostTest extends TestCase
     {
         $post = $this->makePost();
 
-        $admin = factory(Admin::class)->create();
+        $this->login();
         
-        $this->be($admin);
-
         $resp = $this->post('/post', $post);
 
         $resp->assertSessionHas('message');
