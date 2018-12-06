@@ -14,7 +14,7 @@ class CreatePostTest extends TestCase
     /** @test */
     public function can_create_post_successfully()
     {
-        $post = $this->createPost();
+        $post = $this->makePost();
 
         $admin = factory(Admin::class)->create();
         
@@ -35,7 +35,7 @@ class CreatePostTest extends TestCase
     /** @test */
     public function unauthorized_users_cant_create_posts()
     {
-        $post = $this->createPost();
+        $post = $this->makePost();
 
         $this->post('/post', $post)
             ->assertStatus(403);
