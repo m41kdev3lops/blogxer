@@ -8,7 +8,7 @@ An awesome blog built from scratch using Laravel.
 3. open the terminal and cd into the main directory of the project.
 4. run `php artisan migrate --seed` command to run the db migrations and add some dummy data ( and the admin account in the process ).
 5. run `php artisan serve` command to run a development server.
-6. open localhost:8000 in your browser to start the application.
+6. open http://localhost:8000 in your browser to start the application.
 
 That's it. Enjoy.
 
