@@ -25,7 +25,9 @@ class CreatePostTest extends TestCase
         $resp->assertSessionHas('message');
             
         $this->assertDatabaseHas('posts', [
-            'title'  => $post['title']
+            'title'                 => $post['title'],
+            'short_description'     => $post['short_description'],
+            'body'                  => $post['body']
         ]);
     }
 
