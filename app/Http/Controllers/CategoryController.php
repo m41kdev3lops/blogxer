@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function __construct(CategoryService $categoryService)
     {
         $this->middleware('isAdmin')->only([
-            'store', 'create'
+            'store', 'create', 'destroy'
         ]);
 
         $this->categoryService = $categoryService;
