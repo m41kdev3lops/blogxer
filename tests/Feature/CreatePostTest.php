@@ -37,5 +37,11 @@ class CreatePostTest extends TestCase
 
         $this->post('/post', $post)
             ->assertStatus(403);
+        
+        $this->assertDatabaseMissing('posts', [
+            'title'                 => $post['title'],
+            'short_description'     => $post['short_description'],
+            'body'                  => $post['body']
+        ]);
     }
 }
