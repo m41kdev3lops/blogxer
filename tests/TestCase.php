@@ -12,11 +12,7 @@ abstract class TestCase extends BaseTestCase
 
     protected function createPost()
     {
-        $category = $this->createCategory();
-
-        return factory(Post::class)->make([
-            'category_id'   => $category->id
-        ])->toArray();
+        return factory(Post::class)->make()->toArray();
     }
 
 
