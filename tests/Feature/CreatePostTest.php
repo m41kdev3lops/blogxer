@@ -2,9 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Post;
 use App\Admin;
-use App\Category;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -39,21 +37,5 @@ class CreatePostTest extends TestCase
 
         $this->post('/post', $post)
             ->assertStatus(403);
-    }
-
-
-    protected function createPost()
-    {
-        $category = $this->createCategory();
-
-        return factory(Post::class)->make([
-            'category_id'   => $category->id
-        ])->toArray();
-    }
-
-
-    protected function createCategory()
-    {
-        return factory(Category::class)->create();
     }
 }
