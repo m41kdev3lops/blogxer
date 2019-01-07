@@ -1,7 +1,7 @@
 # BlogXer
 An awesome blog built from scratch (with unit testing) using Laravel.
 
-# How to setup ( After cloning the project on your local machine. )
+# How to setup
 
 1. clone the project to your local machine using `git clone https://github.com/m41kdev3lops/blogxer`
 2. change directory into the created folder `cd blogxer`
