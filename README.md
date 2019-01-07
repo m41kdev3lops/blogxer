@@ -3,12 +3,16 @@ An awesome blog built from scratch (with unit testing) using Laravel.
 
 # How to setup ( After cloning the project on your local machine. )
 
-1. edit the .env file to add your database credentials.
-2. create a new database
-3. open the terminal and cd into the main directory of the project.
-4. run `php artisan migrate --seed` command to run the db migrations and add some dummy data ( and the admin account in the process ).
-5. run `php artisan serve` command to run a development server.
-6. open http://localhost:8000 in your browser to start the application.
+1. clone the project to your local machine using `git clone https://github.com/m41kdev3lops/blogxer`
+2. change directory into the created folder `cd blogxer`
+3. install composer dependencies using `composer install`
+4. duplicate .env.example into a new file called .env
+5. run `php artisan key:generate` to generate a new APP_KEY for your application.
+6. create a new mysql database
+7. edit .env to add your database's credentials.
+8. run `php artisan migrate --seed` command to run the db migrations and add some dummy data ( and the admin account in the process )
+9. run `php artisan serve` command to run a development server.
+10. open http://localhost:8000 in your browser to start the application.
 
 That's it. Enjoy.
 
