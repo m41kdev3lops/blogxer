@@ -35,7 +35,7 @@ use those creds to login as an admin account.
 5. Delete posts
 6. Delete categories with their posts
 7. update their information
-8. Logout of his account
+8. Logout of their account
 
 -- Guests can:
 1. View posts
