@@ -1,4 +1,4 @@
-# BloXer
+# BlogXer
 An awesome blog built from scratch (with unit testing) using Laravel.
 
 # How to setup ( After cloning the project on your local machine. )
